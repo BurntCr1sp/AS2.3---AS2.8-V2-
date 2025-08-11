@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+import shutil
 from datetime import datetime
 from Error import error
 
@@ -31,6 +32,11 @@ class Colors: #Found Parts of List on Stack Overflow
 
 def clear():
     os.system('clear')
+
+def print_centered(text):
+    width = shutil.get_terminal_size().columns
+    padding = max((width - len(text)) // 2, 0)
+    print(' ' * padding + text)
 
 def breaker():
     print('')
