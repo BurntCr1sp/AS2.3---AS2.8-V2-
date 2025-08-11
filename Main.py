@@ -1,6 +1,8 @@
 import os
 import sys
 import time
+from datetime import datetime
+from Error import error
 
 class Colors: #Found Parts of List on Stack Overflow
     RESET = '\033[0m'
@@ -9,6 +11,7 @@ class Colors: #Found Parts of List on Stack Overflow
     GREEN = '\033[32m'
     YELLOW = '\033[33m'
     BLUE = '\033[34m'
+    ORANGE = '\033[38;5;208m'
     MAGENTA = '\033[35m'
     CYAN = '\033[36m'
     WHITE = '\033[37m'
@@ -29,11 +32,30 @@ class Colors: #Found Parts of List on Stack Overflow
 def clear():
     os.system('clear')
 
+def breaker():
+    print('')
+
 def slowprint(text, delay=0.015):
     for c in text:
         print(c, end='', flush=True)
         time.sleep(delay)
-    print()
+    breaker()
+
+def leave():
+    slowprint(Colors.RED + Colors.BOLD + ">>> [SECURE TERMINAL OFFLINE] <<<" + Colors.RESET)
+    slowprint(Colors.DIM + "Encrypting raw data..." + Colors.RESET)
+    lol(3)
+    error()
+    breaker()
+    slowprint(Colors.DIM + "-- BurntCr1sp was here :P --" + Colors.RESET)
+    print(f"""{Colors.ORANGE}
+      ▄██▄       
+    ▄██████▄
+   ███▄██▄███
+     ▄▀▄▄▀▄
+    ▀ ▀  ▀ ▀
+{Colors.RESET}""")
+    exit()
 
 def lol(duration=2, width=30):
     sys.stdout.write(Colors.CYAN + "[")
@@ -46,9 +68,29 @@ def lol(duration=2, width=30):
 def Main():
     clear()
     slowprint(Colors.RED + Colors.BOLD + ">>> [SECURE TERMINAL ONLINE] <<<" + Colors.RESET)
-    slowprint(Colors.DIM + "Initializing keylog access layer..." + Colors.RESET)
+    slowprint(Colors.DIM + "Initializing database access layer..." + Colors.RESET)
     lol(1.5)
-    slowprint(Colors.DIM + "Decrypting logs..." + Colors.RESET)
+    slowprint(Colors.DIM + "Decrypting database..." + Colors.RESET)
     lol(1.2)
-    slowprint(Colors.GREEN + Colors.BOLD + "ACCESS GRANTED: KEYLOGS STREAM OPEN\n" + Colors.RESET)
+    slowprint(Colors.GREEN + Colors.BOLD + Colors.BLINK + "ACCESS GRANTED: DATABASE STREAM OPEN\n" + Colors.RESET)
+
+    timenow = datetime.now().strftime("%H:%M:%S")
+    print(f'{Colors.DIM}[{timenow}]{Colors.RESET} {Colors.BRIGHT_YELLOW}-- COMMANDS --{Colors.RESET}')
+    print("1. Enter Database")
+    print("2. Exit\n")
+    user_input = input(Colors.BRIGHT_YELLOW + ">> " + Colors.RESET).lower()
+
+    if user_input == "enter" or user_input == "enter Database" or user_input == "1":
+        clear()
+        print('ok bucko, good choice!')
+    elif user_input == "exit" or user_input == "2":
+        clear()
+        leave()
 Main()
+
+
+#print(f"""{Colors.BRIGHT_GREEN}@@@@@@@@ @@@ @@@      @@@@@@@@@@   @@@@@@      @@@@@@@   @@@@@@  @@@@@@@  @@@@@@  @@@@@@@   @@@@@@   @@@@@@ @@@@@@@@
+#@@!      @@! @@!      @@! @@! @@! !@@          @@!  @@@ @@!  @@@   @@!   @@!  @@@ @@!  @@@ @@!  @@@ !@@     @@!     
+#@!!!:!   !!@ @!!      @!! !!@ @!@  !@@!!       @!@  !@! @!@!@!@!   @!!   @!@!@!@! @!@!@!@  @!@!@!@!  !@@!!  @!!!:!  
+#!!:      !!: !!:      !!:     !!:     !:!      !!:  !!! !!:  !!!   !!:   !!:  !!! !!:  !!! !!:  !!!     !:! !!:     
+# :       :   : ::.: :  :      :   ::.: :       :: :  :   :   : :    :     :   : : :: : ::   :   : : ::.: :  : :: :::{Colors.RESET}""")
