@@ -2,8 +2,10 @@ import os
 import sys
 import time
 import shutil
-from datetime import datetime
+import sqlite3
 from Error import error
+from datetime import datetime
+from Internal_Functions import enterDB
 
 class Colors: #Found Parts of List on Stack Overflow
     RESET = '\033[0m'
@@ -74,21 +76,22 @@ def lol(duration=2, width=30):
 def Main():
     clear()
     slowprint(Colors.RED + Colors.BOLD + ">>> [SECURE TERMINAL ONLINE] <<<" + Colors.RESET)
-    slowprint(Colors.DIM + "Initializing database access layer..." + Colors.RESET)
+    slowprint(Colors.DIM + "Initializing FDB access layer..." + Colors.RESET)
     lol(1.5)
-    slowprint(Colors.DIM + "Decrypting database..." + Colors.RESET)
+    slowprint(Colors.DIM + "Decrypting FDB database..." + Colors.RESET)
     lol(1.2)
-    slowprint(Colors.GREEN + Colors.BOLD + Colors.BLINK + "ACCESS GRANTED: DATABASE STREAM OPEN\n" + Colors.RESET)
+    slowprint(Colors.GREEN + Colors.BOLD + Colors.BLINK + "ACCESS GRANTED: FDB STREAM OPEN\n" + Colors.RESET)
 
     timenow = datetime.now().strftime("%H:%M:%S")
     print(f'{Colors.DIM}[{timenow}]{Colors.RESET} {Colors.BRIGHT_YELLOW}-- COMMANDS --{Colors.RESET}')
-    print("1. Enter Database")
+    print("1. Enter FDB Database")
     print("2. Exit\n")
     user_input = input(Colors.BRIGHT_YELLOW + ">> " + Colors.RESET).lower()
 
-    if user_input == "enter" or user_input == "enter Database" or user_input == "1":
+    if user_input == "enter" or user_input == "enter fdb database" or user_input == "1":
         clear()
-        print('ok bucko, good choice!')
+        enterDB()
+
     elif user_input == "exit" or user_input == "2":
         clear()
         leave()
