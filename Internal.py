@@ -4,7 +4,7 @@ import time
 import sys
 import os
 
-DATABASE = 'DataBase.db'
+DATABASE = 'database.db'
 
 def useless():
     print('')
@@ -23,10 +23,9 @@ def enterDB():
         select_query = """
         SELECT
             *
-        FROM 'Films'
+        FROM Films
         """
-        cursor.execute(select_query)
-        data = cursor.fetchall()
+
         print(f"{Colors.RED}@@@@@@@@ @@@ @@@      @@@@@@@@@@   @@@@@@      @@@@@@@   @@@@@@  @@@@@@@  @@@@@@  @@@@@@@   @@@@@@   @@@@@@ @@@@@@@@{Colors.RESET}")
         time.sleep(0.25)
         print(f"{Colors.RED}@@!      @@! @@!      @@! @@! @@! !@@          @@!  @@@ @@!  @@@   @@!   @@!  @@@ @@!  @@@ @@!  @@@ !@@     @@!{Colors.RESET}")
@@ -57,7 +56,17 @@ def enterDB():
         print(f"{Colors.BRIGHT_GREEN}!!:      !!: !!:      !!:     !!:     !:!      !!:  !!! !!:  !!!   !!:   !!:  !!! !!:  !!! !!:  !!!     !:! !!:{Colors.RESET}")
         time.sleep(0.25)
         print(f"{Colors.BRIGHT_GREEN} :       :   : ::.: :  :      :   ::.: :       :: :  :   :   : :    :     :   : : :: : ::   :   : : ::.: :  : :: :::{Colors.RESET}")
-
+        
+        cursor.execute(select_query)
+        data1 = cursor.fetchall()
+        print('')
+        print('                         〰〰 DATA 〰〰')
+        print('╭────┬────────────────┬──────────┬─────────┬───────────┬─────────╮')
+        print('│ ID │ Name           │ Year     │  Rating │  Length   │  Genre  │')
+        print('├────┼────────────────┼──────────┼─────────┼───────────┼─────────┤')
+        for data in data1:
+            print(f"│{data[0]:<4}│{data[1]:<16}│{data[2]:<10}│{data[3]:<9}│{data[4]:<11}│{data[5]:<9}│")
+        print('╰────┴────────────────┴──────────┴─────────┴───────────┴─────────╯')
 
 
 

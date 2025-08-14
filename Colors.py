@@ -1,4 +1,4 @@
-class Colors: #Found Parts of List on Stack Overflow
+class Colors:  # Found Parts of List on Stack Overflow
     RESET = '\033[0m'
     BLACK = '\033[30m'
     RED = '\033[31m'
@@ -22,3 +22,10 @@ class Colors: #Found Parts of List on Stack Overflow
     UNDERLINE = '\033[4m'
     BLINK = '\033[5m'
     INVERT = '\033[7m'
+    PINK_INVADER = '\033[38;2;209;48;138m'
+    YELLOW_INVADER = '\033[38;2;251;224;76m'
+    ORANGE_INVADER = '\033[38;2;239;126;49m'
+    BLUE_INVADER = '\033[38;2;57;140;209m'
+    RED_INVADER = '\033[38;2;75;166;86m'
+
+# In TEST, \033 is the escape_char, 38 means set foreground, 2 spesifies 24 BIT, the rest is RGB, m is last char. 

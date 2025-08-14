@@ -32,12 +32,39 @@ def leave():
     error()
     breaker()
     slowprint(Colors.DIM + "-- BurntCr1sp was here :P --" + Colors.RESET)
+    print(f"""{Colors.RED}
+     ▄▄████▄▄
+   ▄██████████▄
+ ▄██▄██▄██▄██▄██▄
+   ▀█▀  ▀▀  ▀█▀
+{Colors.RESET}""")
+    print(f"""{Colors.BRIGHT_YELLOW}
+     ▀▄   ▄▀
+    ▄█▀███▀█▄
+   █▀███████▀█
+   █ █▀▀▀▀▀█ █
+      ▀▀ ▀▀
+{Colors.RESET}""")
     print(f"""{Colors.ORANGE}
       ▄██▄       
     ▄██████▄
    ███▄██▄███
      ▄▀▄▄▀▄
     ▀ ▀  ▀ ▀
+{Colors.RESET}""")
+    print(f"""{Colors.GREEN}
+   ▄ ▀▄   ▄▀ ▄
+   █▄███████▄█
+   ███▄███▄███
+   ▀█████████▀
+    ▄▀     ▀▄
+{Colors.RESET}""")
+    print(f"""{Colors.BLUE}
+    ▄▄████▄▄
+   ██████████
+   ██▄▄██▄▄██
+    ▄▀▄▀▀▄▀▄
+   ▀        ▀
 {Colors.RESET}""")
     exit()
 
