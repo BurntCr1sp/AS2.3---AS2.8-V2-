@@ -6,8 +6,9 @@ import os
 
 DATABASE = 'database.db'
 
-def useless():
-    print('')
+def useless(number):
+    for _ in range(number):
+        print('')
 
 def lol2(duration=2, width=114):
     sys.stdout.write(Colors.CYAN + "[")
@@ -35,17 +36,14 @@ def enterDB():
         print(f"{Colors.RED}!!:      !!: !!:      !!:     !!:     !:!      !!:  !!! !!:  !!!   !!:   !!:  !!! !!:  !!! !!:  !!!     !:! !!:{Colors.RESET}")
         time.sleep(0.25)
         print(f"{Colors.RED} :       :   : ::.: :  :      :   ::.: :       :: :  :   :   : :    :     :   : : :: : ::   :   : : ::.: :  : :: :::{Colors.RESET}")
-        useless()
-        useless()
-        useless()
-        useless()
+        useless(4)
         print(f"{Colors.DIM}Importing FDB...{Colors.RESET}")
-        lol2(5)
-        useless()
+        lol2(3)
+        useless(1)
         print(f"{Colors.DIM}Just a random loading bar for suspence and to waste time...{Colors.RESET}")
-        lol2(20)
+        lol2(3)
         print(f"{Colors.DIM}W̷e̴l̵c̷o̷m̴e̶...{Colors.RESET}")
-        time.sleep(3)
+        time.sleep(2)
         os.system('clear')
         print(f"{Colors.BRIGHT_GREEN}@@@@@@@@ @@@ @@@      @@@@@@@@@@   @@@@@@      @@@@@@@   @@@@@@  @@@@@@@  @@@@@@  @@@@@@@   @@@@@@   @@@@@@ @@@@@@@@{Colors.RESET}")
         time.sleep(0.25)
@@ -67,6 +65,7 @@ def enterDB():
         for data in data1:
             print(f"│{data[0]:<4}│{data[1]:<16}│{data[2]:<10}│{data[3]:<9}│{data[4]:<11}│{data[5]:<9}│")
         print('╰────┴────────────────┴──────────┴─────────┴───────────┴─────────╯')
+        
 
 
 

@@ -7,6 +7,7 @@ from Error import error
 from datetime import datetime
 from Internal import enterDB
 from Colors import Colors
+from INVADERS import really
 
 def clear():
     os.system('clear')
@@ -16,56 +17,25 @@ def print_centered(text):
     padding = max((width - len(text)) // 2, 0)
     print(' ' * padding + text)
 
-def breaker():
-    print('')
+def breaker(number):
+    for _ in range(number):
+        print('')
 
 def slowprint(text, delay=0.015):
     for c in text:
         print(c, end='', flush=True)
         time.sleep(delay)
-    breaker()
+    breaker(1)
 
 def leave():
     slowprint(Colors.RED + Colors.BOLD + ">>> [SECURE TERMINAL OFFLINE] <<<" + Colors.RESET)
     slowprint(Colors.DIM + "Encrypting raw data..." + Colors.RESET)
     lol(3)
     error()
-    breaker()
+    breaker(1)
     slowprint(Colors.DIM + "-- BurntCr1sp was here :P --" + Colors.RESET)
-    print(f"""{Colors.RED}
-     ▄▄████▄▄
-   ▄██████████▄
- ▄██▄██▄██▄██▄██▄
-   ▀█▀  ▀▀  ▀█▀
-{Colors.RESET}""")
-    print(f"""{Colors.BRIGHT_YELLOW}
-     ▀▄   ▄▀
-    ▄█▀███▀█▄
-   █▀███████▀█
-   █ █▀▀▀▀▀█ █
-      ▀▀ ▀▀
-{Colors.RESET}""")
-    print(f"""{Colors.ORANGE}
-      ▄██▄       
-    ▄██████▄
-   ███▄██▄███
-     ▄▀▄▄▀▄
-    ▀ ▀  ▀ ▀
-{Colors.RESET}""")
-    print(f"""{Colors.GREEN}
-   ▄ ▀▄   ▄▀ ▄
-   █▄███████▄█
-   ███▄███▄███
-   ▀█████████▀
-    ▄▀     ▀▄
-{Colors.RESET}""")
-    print(f"""{Colors.BLUE}
-    ▄▄████▄▄
-   ██████████
-   ██▄▄██▄▄██
-    ▄▀▄▀▀▄▀▄
-   ▀        ▀
-{Colors.RESET}""")
+    breaker(1)
+    really()
     exit()
 
 def lol(duration=2, width=30):
@@ -94,6 +64,20 @@ def Main():
     if user_input == "enter" or user_input == "enter fdb database" or user_input == "1":
         clear()
         enterDB()
+        print('Back to home or exit? (h/e)')
+        exit = input(f'{Colors.DIM}>>> {Colors.RESET}').capitalize()
+
+        if exit == 'H':
+            Main()
+        elif exit == 'E':
+            time.sleep(1)
+            print('To get your braincells back, please tap the any key.')
+            time.sleep(2.5)
+            print('Sorry I said that but, I wouldnt need to make it if you didnt try it...')
+            time.sleep(4)
+            leave()
+        else:
+            exit = input('Back to home or exit? (h/e) ').capitalize()
 
     elif user_input == "exit" or user_input == "2":
         clear()
@@ -106,27 +90,3 @@ Main()
 #@!!!:!   !!@ @!!      @!! !!@ @!@  !@@!!       @!@  !@! @!@!@!@!   @!!   @!@!@!@! @!@!@!@  @!@!@!@!  !@@!!  @!!!:!  
 #!!:      !!: !!:      !!:     !!:     !:!      !!:  !!! !!:  !!!   !!:   !!:  !!! !!:  !!! !!:  !!!     !:! !!:     
 # :       :   : ::.: :  :      :   ::.: :       :: :  :   :   : :    :     :   : : :: : ::   :   : : ::.: :  : :: :::{Colors.RESET}""")
-
-"""
-░░░░░▀▄░░░▄▀░░░░░
-░░░░▄█▀███▀█▄░░░░
-░░░█▀███████▀█░░░
-░░░█░█▀▀▀▀▀█░█░░░
-░░░░░░▀▀░▀▀░░░░░░
-░░░░░░░░░░░░░░░░░░
-░░░░░▄▄████▄▄░░░░░
-░░░▄██████████▄░░░
-░▄██▄██▄██▄██▄██▄░
-░░░▀█▀░░▀▀░░▀█▀░░░
-░░░░░░░░░░░░░░░░░░
-░░░▄░▀▄░░░▄▀░▄░░░
-░░░█▄███████▄█░░░
-░░░███▄███▄███░░░
-░░░▀█████████▀░░░
-░░░░▄▀░░░░░▀▄░░░░
-░░░░░░░░░░░░░░░░░
-░░░░▄▄████▄▄░░░░░
-░░░██████████░░░░
-░░░██▄▄██▄▄██░░░░
-░░░░▄▀▄▀▀▄▀▄░░░░░
-░░░▀░░░░░░░░▀░░░░"""
