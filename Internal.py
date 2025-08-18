@@ -18,6 +18,15 @@ def lol2(duration=2, width=114):
         time.sleep(duration / width)
     sys.stdout.write("]" + Colors.RESET + "\n")
 
+def Database_format(Films):
+    id_, name, year, rating, length, genre = [str(f or '') for f in Films]
+    header = f'ID:{id_:<4} YEAR:{year} RATING:{rating}'
+    container1 = f'-- NAME --\n{name}'
+    container2 = f'-- LENGTH --\n{length}'
+    container3 = f'-- GENRE --\n{genre}'
+    connect = f"{header}\n{container1}\n{container2}\n{container3}\n" + "-"*70
+    return connect
+
 def enterDB():
     with sqlite3.connect(DATABASE) as connection:
         cursor = connection.cursor()
@@ -54,19 +63,36 @@ def enterDB():
         print(f"{Colors.BRIGHT_GREEN}!!:      !!: !!:      !!:     !!:     !:!      !!:  !!! !!:  !!!   !!:   !!:  !!! !!:  !!! !!:  !!!     !:! !!:{Colors.RESET}")
         time.sleep(0.25)
         print(f"{Colors.BRIGHT_GREEN} :       :   : ::.: :  :      :   ::.: :       :: :  :   :   : :    :     :   : : :: : ::   :   : : ::.: :  : :: :::{Colors.RESET}")
-        
+        useless(4)
+
         cursor.execute(select_query)
         data1 = cursor.fetchall()
-        print('')
-        print('                         〰〰 DATA 〰〰')
-        print('╭────┬────────────────┬──────────┬─────────┬───────────┬─────────╮')
-        print('│ ID │ Name           │ Year     │  Rating │  Length   │  Genre  │')
-        print('├────┼────────────────┼──────────┼─────────┼───────────┼─────────┤')
-        for data in data1:
-            print(f"│{data[0]:<4}│{data[1]:<16}│{data[2]:<10}│{data[3]:<9}│{data[4]:<11}│{data[5]:<9}│")
-        print('╰────┴────────────────┴──────────┴─────────┴───────────┴─────────╯')
         
+        for data in data1:
+            print(Database_format(data))
 
+def addtoDB(DATABASE, Name, Year, Rating, Length, Genre):
+    try:
+        connect = sqlite3.connect(DATABASE)
+        cursor = connect.cursor()
+        print("Attempting to insert:", Name, Year, Rating, Length, Genre)
+        cursor.execute(
+            "INSERT INTO \"Films\" (Name, Year, Rating, Length, Genre) VALUES (?, ?, ?, ?, ?)", 
+            (Name, Year, Rating, Length, Genre)
+        )
+        connect.commit()
+        return "Film added successfully."
+    except sqlite3.Error as e:
+        return f"An error occurred: {e}"
+    finally:
+        if connect:
+            connect.close()
+
+def searchDB():
+    ...
+
+def exportDB():
+    ...
 
 
 

@@ -2,7 +2,6 @@ import os
 import sys
 import time
 import shutil
-import sqlite3
 from Error import error
 from datetime import datetime
 from Internal import enterDB
@@ -58,35 +57,39 @@ def Main():
     timenow = datetime.now().strftime("%H:%M:%S")
     print(f'{Colors.DIM}[{timenow}]{Colors.RESET} {Colors.BRIGHT_YELLOW}-- COMMANDS --{Colors.RESET}')
     print("1. Enter FDB Database")
-    print("2. Exit\n")
+    print("2. Search FDB Database")
+    print("3. Add to FDB Database")
+    print("4. Export FDB Database")
+    print("5. Exit\n")
     user_input = input(Colors.BRIGHT_YELLOW + ">> " + Colors.RESET).lower()
 
     if user_input == "enter" or user_input == "enter fdb database" or user_input == "1":
         clear()
         enterDB()
-        print('Back to home or exit? (h/e)')
+        print(f'{Colors.DIM}Back to home or exit? (H/E){Colors.RESET}')
         exit = input(f'{Colors.DIM}>>> {Colors.RESET}').capitalize()
 
         if exit == 'H':
             Main()
         elif exit == 'E':
             time.sleep(1)
-            print('To get your braincells back, please tap the any key.')
+            print(f'{Colors.DIM}Goodbye...{Colors.RESET}')
             time.sleep(2.5)
-            print('Sorry I said that but, I wouldnt need to make it if you didnt try it...')
-            time.sleep(4)
+            clear()
             leave()
         else:
             exit = input('Back to home or exit? (h/e) ').capitalize()
 
-    elif user_input == "exit" or user_input == "2":
+    elif user_input == "search" or user_input == "search fdb database" or user_input == "2":
+        ...
+
+    elif user_input == "add" or user_input == "add to fdb database" or user_input == "3":
+        ...
+    
+    elif user_input == "export" or user_input == "export fdb database" or user_input == "4":
+        ...
+
+    elif user_input == "exit" or user_input == "5":
         clear()
         leave()
 Main()
-
-
-#print(f"""{Colors.BRIGHT_GREEN}@@@@@@@@ @@@ @@@      @@@@@@@@@@   @@@@@@      @@@@@@@   @@@@@@  @@@@@@@  @@@@@@  @@@@@@@   @@@@@@   @@@@@@ @@@@@@@@
-#@@!      @@! @@!      @@! @@! @@! !@@          @@!  @@@ @@!  @@@   @@!   @@!  @@@ @@!  @@@ @@!  @@@ !@@     @@!     
-#@!!!:!   !!@ @!!      @!! !!@ @!@  !@@!!       @!@  !@! @!@!@!@!   @!!   @!@!@!@! @!@!@!@  @!@!@!@!  !@@!!  @!!!:!  
-#!!:      !!: !!:      !!:     !!:     !:!      !!:  !!! !!:  !!!   !!:   !!:  !!! !!:  !!! !!:  !!!     !:! !!:     
-# :       :   : ::.: :  :      :   ::.: :       :: :  :   :   : :    :     :   : : :: : ::   :   : : ::.: :  : :: :::{Colors.RESET}""")
