@@ -10,7 +10,7 @@ def useless(number):
     for _ in range(number):
         print('')
 
-def lol2(duration=2, width=114):
+def loading_bar2(duration=2, width=114):
     sys.stdout.write(Colors.CYAN + "[")
     for _ in range(width):
         sys.stdout.write("█")
@@ -20,10 +20,10 @@ def lol2(duration=2, width=114):
 
 def Database_format(Films):
     id_, name, year, rating, length, genre = [str(f or '') for f in Films]
-    header = f'ID:{id_:<4} YEAR:{year} RATING:{rating}'
-    container1 = f'-- NAME --\n{name}'
-    container2 = f'-- LENGTH --\n{length}'
-    container3 = f'-- GENRE --\n{genre}'
+    header = f'{Colors.RED}ID:{id_:<4}{Colors.RESET} {Colors.BRIGHT_YELLOW}YEAR:{year:<7} RATING:{rating}{Colors.RESET}\n'
+    container1 = f'{Colors.BRIGHT_YELLOW}-- NAME --{Colors.RESET}\n{name}\n'
+    container2 = f'{Colors.BRIGHT_YELLOW}-- LENGTH --{Colors.RESET}\n{length}\n'
+    container3 = f'{Colors.BRIGHT_YELLOW}-- GENRE --{Colors.RESET}\n{genre}\n'
     connect = f"{header}\n{container1}\n{container2}\n{container3}\n" + "-"*70
     return connect
 
@@ -47,10 +47,10 @@ def enterDB():
         print(f"{Colors.RED} :       :   : ::.: :  :      :   ::.: :       :: :  :   :   : :    :     :   : : :: : ::   :   : : ::.: :  : :: :::{Colors.RESET}")
         useless(4)
         print(f"{Colors.DIM}Importing FDB...{Colors.RESET}")
-        lol2(3)
+        loading_bar2(3)
         useless(1)
         print(f"{Colors.DIM}Just a random loading bar for suspence and to waste time...{Colors.RESET}")
-        lol2(3)
+        loading_bar2(3)
         print(f"{Colors.DIM}W̷e̴l̵c̷o̷m̴e̶...{Colors.RESET}")
         time.sleep(2)
         os.system('clear')
@@ -71,14 +71,14 @@ def enterDB():
         for data in data1:
             print(Database_format(data))
 
-def addtoDB(DATABASE, Name, Year, Rating, Length, Genre):
+def addtoDB(DATABASE, name, year, rating, length, genre):
     try:
         connect = sqlite3.connect(DATABASE)
         cursor = connect.cursor()
-        print("Attempting to insert:", Name, Year, Rating, Length, Genre)
+        print("Attempting to insert:", name, year, rating, length, genre)
         cursor.execute(
             "INSERT INTO \"Films\" (Name, Year, Rating, Length, Genre) VALUES (?, ?, ?, ?, ?)", 
-            (Name, Year, Rating, Length, Genre)
+            (name, year, rating, length, genre)
         )
         connect.commit()
         return "Film added successfully."

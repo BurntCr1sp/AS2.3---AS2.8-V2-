@@ -2,11 +2,26 @@ import os
 import sys
 import time
 import shutil
+import sqlite3
 from Error import error
 from datetime import datetime
-from Internal import enterDB
+from Internal import enterDB, addtoDB
 from Colors import Colors
 from INVADERS import really
+
+DATABASE = 'database.db'
+
+def header():
+    print(f"{Colors.BRIGHT_GREEN}@@@@@@@@ @@@ @@@      @@@@@@@@@@   @@@@@@      @@@@@@@   @@@@@@  @@@@@@@  @@@@@@  @@@@@@@   @@@@@@   @@@@@@ @@@@@@@@{Colors.RESET}")
+    time.sleep(0.25)
+    print(f"{Colors.BRIGHT_GREEN}@@!      @@! @@!      @@! @@! @@! !@@          @@!  @@@ @@!  @@@   @@!   @@!  @@@ @@!  @@@ @@!  @@@ !@@     @@!{Colors.RESET}")
+    time.sleep(0.25)
+    print(f"{Colors.BRIGHT_GREEN}@!!!:!   !!@ @!!      @!! !!@ @!@  !@@!!       @!@  !@! @!@!@!@!   @!!   @!@!@!@! @!@!@!@  @!@!@!@!  !@@!!  @!!!:!{Colors.RESET}")
+    time.sleep(0.25)
+    print(f"{Colors.BRIGHT_GREEN}!!:      !!: !!:      !!:     !!:     !:!      !!:  !!! !!:  !!!   !!:   !!:  !!! !!:  !!! !!:  !!!     !:! !!:{Colors.RESET}")
+    time.sleep(0.25)
+    print(f"{Colors.BRIGHT_GREEN} :       :   : ::.: :  :      :   ::.: :       :: :  :   :   : :    :     :   : : :: : ::   :   : : ::.: :  : :: :::{Colors.RESET}")
+    breaker(4)
 
 def clear():
     os.system('clear')
@@ -29,7 +44,7 @@ def slowprint(text, delay=0.015):
 def leave():
     slowprint(Colors.RED + Colors.BOLD + ">>> [SECURE TERMINAL OFFLINE] <<<" + Colors.RESET)
     slowprint(Colors.DIM + "Encrypting raw data..." + Colors.RESET)
-    lol(3)
+    loading_bar(2)
     error()
     breaker(1)
     slowprint(Colors.DIM + "-- BurntCr1sp was here :P --" + Colors.RESET)
@@ -37,7 +52,7 @@ def leave():
     really()
     exit()
 
-def lol(duration=2, width=30):
+def loading_bar(duration=2, width=30):
     sys.stdout.write(Colors.CYAN + "[")
     for _ in range(width):
         sys.stdout.write("█")
@@ -49,18 +64,19 @@ def Main():
     clear()
     slowprint(Colors.RED + Colors.BOLD + ">>> [SECURE TERMINAL ONLINE] <<<" + Colors.RESET)
     slowprint(Colors.DIM + "Initializing FDB access layer..." + Colors.RESET)
-    lol(1.5)
+    loading_bar(1.5)
     slowprint(Colors.DIM + "Decrypting FDB database..." + Colors.RESET)
-    lol(1.2)
+    loading_bar(1.2)
     slowprint(Colors.GREEN + Colors.BOLD + Colors.BLINK + "ACCESS GRANTED: FDB STREAM OPEN\n" + Colors.RESET)
 
     timenow = datetime.now().strftime("%H:%M:%S")
     print(f'{Colors.DIM}[{timenow}]{Colors.RESET} {Colors.BRIGHT_YELLOW}-- COMMANDS --{Colors.RESET}')
     print("1. Enter FDB Database")
-    print("2. Search FDB Database")
-    print("3. Add to FDB Database")
-    print("4. Export FDB Database")
-    print("5. Exit\n")
+    print("2. Search Database")
+    print("3. Add to Database")
+    print("4. Remove from Database")
+    print("5. Export Database")
+    print("6. Exit\n")
     user_input = input(Colors.BRIGHT_YELLOW + ">> " + Colors.RESET).lower()
 
     if user_input == "enter" or user_input == "enter fdb database" or user_input == "1":
@@ -80,16 +96,50 @@ def Main():
         else:
             exit = input('Back to home or exit? (h/e) ').capitalize()
 
-    elif user_input == "search" or user_input == "search fdb database" or user_input == "2":
+    elif user_input == "search" or user_input == "search database" or user_input == "2":
         ...
 
-    elif user_input == "add" or user_input == "add to fdb database" or user_input == "3":
-        ...
-    
-    elif user_input == "export" or user_input == "export fdb database" or user_input == "4":
+    elif user_input == "add" or user_input == "add to database" or user_input == "3":
+        clear()
+        header()
+        loop = True
+        while loop == True:
+            print("Enter the films name:")
+            name = input(f"{Colors.BRIGHT_YELLOW}>>> {Colors.RESET}")
+            breaker(1)
+            print("Enter the films year of release:")
+            year = int(input(f"{Colors.BRIGHT_YELLOW}>>> {Colors.RESET}"))
+            breaker(1)
+            print("Enter the films rating (e.g PG):")
+            rating = input(f"{Colors.BRIGHT_YELLOW}>>> {Colors.RESET}")
+            breaker(1)
+            print("Enter films length in minutes:")
+            length = int(input(f"{Colors.BRIGHT_YELLOW}>>> {Colors.RESET}"))
+            breaker(1)
+            print("Enter the films genre:")
+            genre = input(f"{Colors.BRIGHT_YELLOW}>>> {Colors.RESET}")
+            breaker(1)
+            result = addtoDB(DATABASE, name, year, rating, length, genre)
+            print(result)
+            time.sleep(3)
+            clear()
+
+            again = input("Go again? (Y/N) ").upper()
+
+            if again == "Y":
+                clear()
+                pass
+            else:
+                clear()
+                Main()
+
+    elif user_input == "remove" or user_input == "remove from database" or user_input == "4":
         ...
 
-    elif user_input == "exit" or user_input == "5":
+    elif user_input == "export" or user_input == "export database" or user_input == "5":
+        ...
+
+    elif user_input == "exit" or user_input == "6":
         clear()
         leave()
 Main()
