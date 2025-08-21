@@ -149,21 +149,19 @@ def Main():
                 Main()
 
     elif user_input == "remove" or user_input == "remove from database" or user_input == "4":
-        clear()
-        enterDB()
-        print(f"{Colors.BRIGHT_YELLOW}Select a film ID to be deleted: {Colors.RESET}")
-        selectedID = int(input(f"{Colors.BRIGHT_YELLOW}>>> {Colors.RESET}"))
-        removefromDB(DATABASE, selectedID)
-        clear()
-        print("Go again? (Y/N)")
-        again = input(f"{Colors.BRIGHT_YELLOW}>>> {Colors.RESET}").upper()
+        while True:
+            clear()
+            enterDB()
+            print(f"{Colors.BRIGHT_YELLOW}Select a film ID to be deleted: {Colors.RESET}")
+            selectedID = int(input(f"{Colors.BRIGHT_YELLOW}>>> {Colors.RESET}"))
+            removefromDB(DATABASE, selectedID)
 
-        if again == "Y":
             clear()
-            pass
-        else:
-            clear()
-            Main()
+            print("Go again? (Y/N)")
+            again = input(f"{Colors.BRIGHT_YELLOW}>>> {Colors.RESET}").upper()
+
+            if again != "Y":
+                Main()
 
     elif user_input == "export" or user_input == "export database" or user_input == "5":
         clear()
