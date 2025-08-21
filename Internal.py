@@ -91,9 +91,46 @@ def addtoDB(DATABASE, name, year, rating, length, genre):
 def searchDB():
     ...
 
-def exportDB():
-    ...
+def exportDB(Films, filename="FDB_export.txt"):
+    try:
+        with open(filename, 'w', encoding='utf-8') as f:
+            for film in Films:
+                id_, name, year, rating, length, genre = [str(f or '') for f in film]
 
+                f.write(f"ID:{id_:<4} YEAR:{year:<7} RATING:{rating}\n")
+                f.write("-- NAME --\n")
+                f.write(name + "\n")
+                f.write("-- LENGTH --\n")
+                f.write(length + "\n")
+                f.write("-- GENRE --\n")
+                f.write(genre + "\n")
+                f.write("-" * 50 + "\n")
+
+        print(f"{Colors.BRIGHT_YELLOW}>> Films exported to {filename}{Colors.RESET}")
+    except Exception as e:
+        print(Colors.RED + f">> Export error: {e}" + Colors.RESET)
+
+def removefromDB(DATABASE, selectedID):
+    while True:
+        print("Sure, no going back? (y/n):")
+        sure = input(f'{Colors.BRIGHT_YELLOW}>>> {Colors.RESET}').lower()
+        if sure == 'y':
+            try:
+                connect = sqlite3.connect(DATABASE)
+                cursor = connect.cursor()
+                cursor.execute("DELETE FROM \"Films\" WHERE ID = ?", (selectedID,))
+                connect.commit()
+                print("Card successfully removed")
+            except sqlite3.Error as e:
+                print(f"An error occurred: {e}")
+            finally:
+                connect.close()
+            break
+        elif sure == 'n':
+            print("Operation cancelled")
+            break 
+        else:
+            print("Invalid input. Please enter 'y' or 'n'.")
 
 
 

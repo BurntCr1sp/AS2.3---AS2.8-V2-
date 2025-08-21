@@ -5,7 +5,7 @@ import shutil
 import sqlite3
 from Error import error
 from datetime import datetime
-from Internal import enterDB, addtoDB
+from Internal import enterDB, addtoDB, exportDB, removefromDB
 from Colors import Colors
 from INVADERS import really
 
@@ -59,6 +59,21 @@ def loading_bar(duration=2, width=30):
         sys.stdout.flush()
         time.sleep(duration / width)
     sys.stdout.write("]" + Colors.RESET + "\n")
+
+def exportexess():
+    try:
+        with sqlite3.connect(DATABASE) as conn:
+            cur = conn.cursor()
+        select_query = """
+        SELECT
+            *
+        FROM Films
+        """
+        cur.execute(select_query)
+        return cur.fetchall()
+    except sqlite3.Error as e:
+        print(Colors.RED + f">> FDB ERROR: {e}" + Colors.RESET)
+        return []
 
 def Main():
     clear()
@@ -134,10 +149,39 @@ def Main():
                 Main()
 
     elif user_input == "remove" or user_input == "remove from database" or user_input == "4":
-        ...
+        clear()
+        enterDB()
+        print(f"{Colors.BRIGHT_YELLOW}Select a film ID to be deleted: {Colors.RESET}")
+        selectedID = int(input(f"{Colors.BRIGHT_YELLOW}>>> {Colors.RESET}"))
+        removefromDB(DATABASE, selectedID)
+        clear()
+        print("Go again? (Y/N)")
+        again = input(f"{Colors.BRIGHT_YELLOW}>>> {Colors.RESET}").upper()
+
+        if again == "Y":
+            clear()
+            pass
+        else:
+            clear()
+            Main()
 
     elif user_input == "export" or user_input == "export database" or user_input == "5":
-        ...
+        clear()
+        print('Are you sure you would like to export? (Y/N)')
+        sure = input(f'{Colors.BRIGHT_YELLOW}>>> {Colors.RESET}').lower()
+        if sure == "y":
+            clear()
+            print(f'{Colors.DIM}The file should be named FDB_export.txt... {Colors.RESET}')
+            time.sleep(2)
+            print(f'{Colors.DIM}Best of luck friend... {Colors.RESET}')
+            time.sleep(1.25)
+            films = exportexess()
+            exportDB(films)
+            time.sleep(3)
+            clear()
+            Main()
+        else:
+            Main()
 
     elif user_input == "exit" or user_input == "6":
         clear()

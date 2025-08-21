@@ -1,0 +1,288 @@
+ID:1    YEAR:2016    RATING:PG
+-- NAME --
+Ghostbusters
+-- LENGTH --
+116
+-- GENRE --
+Comedy
+--------------------------------------------------
+ID:3    YEAR:        RATING:test2
+-- NAME --
+test2
+-- LENGTH --
+
+-- GENRE --
+test2
+--------------------------------------------------
+ID:4    YEAR:        RATING:test3
+-- NAME --
+test3
+-- LENGTH --
+
+-- GENRE --
+test3
+--------------------------------------------------
+ID:5    YEAR:2016    RATING:PG
+-- NAME --
+The Legend of Tarzan
+-- LENGTH --
+109
+-- GENRE --
+Action
+--------------------------------------------------
+ID:6    YEAR:2016    RATING:PG
+-- NAME --
+Jason Bourne
+-- LENGTH --
+123
+-- GENRE --
+Action
+--------------------------------------------------
+ID:7    YEAR:2016    RATING:R
+-- NAME --
+The Nice Guys
+-- LENGTH --
+116
+-- GENRE --
+Crime
+--------------------------------------------------
+ID:8    YEAR:2016    RATING:G
+-- NAME --
+The Secret Life of Pets
+-- LENGTH --
+91
+-- GENRE --
+Animation
+--------------------------------------------------
+ID:9    YEAR:2016    RATING:PG
+-- NAME --
+Star Trek Beyond
+-- LENGTH --
+120
+-- GENRE --
+Action
+--------------------------------------------------
+ID:10   YEAR:2016    RATING:PG
+-- NAME --
+Batman v Superman
+-- LENGTH --
+151
+-- GENRE --
+Action
+--------------------------------------------------
+ID:11   YEAR:2016    RATING:G
+-- NAME --
+Finding Dory
+-- LENGTH --
+103
+-- GENRE --
+Animation
+--------------------------------------------------
+ID:12   YEAR:2016    RATING:G
+-- NAME --
+Zootopia
+-- LENGTH --
+108
+-- GENRE --
+Animation
+--------------------------------------------------
+ID:13   YEAR:2016    RATING:PG
+-- NAME --
+The BFG
+-- LENGTH --
+90
+-- GENRE --
+Fantasy
+--------------------------------------------------
+ID:14   YEAR:2016    RATING:PG
+-- NAME --
+A Monster Calls
+-- LENGTH --
+130
+-- GENRE --
+Fantasy
+--------------------------------------------------
+ID:15   YEAR:2016    RATING:PG
+-- NAME --
+Independence Day: Resurgence
+-- LENGTH --
+120
+-- GENRE --
+Action
+--------------------------------------------------
+ID:16   YEAR:2016    RATING:R
+-- NAME --
+The Green Room
+-- LENGTH --
+94
+-- GENRE --
+Crime
+--------------------------------------------------
+ID:17   YEAR:2016    RATING:PG
+-- NAME --
+Doctor Strange
+-- LENGTH --
+130
+-- GENRE --
+Fantasy
+--------------------------------------------------
+ID:18   YEAR:2016    RATING:PG
+-- NAME --
+The Jungle Book
+-- LENGTH --
+105
+-- GENRE --
+Fantasy
+--------------------------------------------------
+ID:19   YEAR:2016    RATING:PG
+-- NAME --
+Alice Through the Looking Glass
+-- LENGTH --
+118
+-- GENRE --
+Fantasy
+--------------------------------------------------
+ID:20   YEAR:2016    RATING:R
+-- NAME --
+Imperium
+-- LENGTH --
+109
+-- GENRE --
+Crime
+--------------------------------------------------
+ID:21   YEAR:2016    RATING:R
+-- NAME --
+The Infiltrator
+-- LENGTH --
+127
+-- GENRE --
+Crime
+--------------------------------------------------
+ID:22   YEAR:2015    RATING:R
+-- NAME --
+Mad Max: Fury Road
+-- LENGTH --
+120
+-- GENRE --
+Action
+--------------------------------------------------
+ID:23   YEAR:2015    RATING:PG
+-- NAME --
+Spectre
+-- LENGTH --
+121
+-- GENRE --
+Action
+--------------------------------------------------
+ID:24   YEAR:2015    RATING:PG
+-- NAME --
+Jurassic World
+-- LENGTH --
+100
+-- GENRE --
+Action
+--------------------------------------------------
+ID:25   YEAR:2015    RATING:PG
+-- NAME --
+The Intern
+-- LENGTH --
+121
+-- GENRE --
+Comedy
+--------------------------------------------------
+ID:26   YEAR:2015    RATING:R
+-- NAME --
+Ted 2
+-- LENGTH --
+122
+-- GENRE --
+Comedy
+--------------------------------------------------
+ID:27   YEAR:2015    RATING:R
+-- NAME --
+Trainwreck
+-- LENGTH --
+122
+-- GENRE --
+Comedy
+--------------------------------------------------
+ID:28   YEAR:2015    RATING:PG
+-- NAME --
+Inside Out
+-- LENGTH --
+94
+-- GENRE --
+Animation
+--------------------------------------------------
+ID:29   YEAR:2015    RATING:G
+-- NAME --
+The Good Dinosaur
+-- LENGTH --
+101
+-- GENRE --
+Animation
+--------------------------------------------------
+ID:30   YEAR:2014    RATING:PG
+-- NAME --
+Divergent
+-- LENGTH --
+121
+-- GENRE --
+Action
+--------------------------------------------------
+ID:31   YEAR:2014    RATING:PG
+-- NAME --
+The Max Runner
+-- LENGTH --
+115
+-- GENRE --
+Action
+--------------------------------------------------
+ID:32   YEAR:2014    RATING:R
+-- NAME --
+Birdman
+-- LENGTH --
+119
+-- GENRE --
+Comedy
+--------------------------------------------------
+ID:33   YEAR:2014    RATING:PG
+-- NAME --
+Guardians of the Galaxy
+-- LENGTH --
+121
+-- GENRE --
+Fantasy
+--------------------------------------------------
+ID:34   YEAR:2014    RATING:PG
+-- NAME --
+The Lego Movie
+-- LENGTH --
+100
+-- GENRE --
+Animation
+--------------------------------------------------
+ID:35   YEAR:2014    RATING:PG
+-- NAME --
+Big Hero 6
+-- LENGTH --
+108
+-- GENRE --
+Animation
+--------------------------------------------------
+ID:36   YEAR:2014    RATING:R
+-- NAME --
+The Drop
+-- LENGTH --
+106
+-- GENRE --
+Crime
+--------------------------------------------------
+ID:37   YEAR:2013    RATING:R18
+-- NAME --
+The Wolf of Wall Street
+-- LENGTH --
+179
+-- GENRE --
+Comedy
+--------------------------------------------------
